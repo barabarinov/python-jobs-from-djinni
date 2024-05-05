@@ -29,6 +29,20 @@ class PythonVacanciesSpider(scrapy.Spider):
         span_tag = response.xpath('//span[contains(@class, "bi-tags")]')
         return span_tag.xpath('./parent::div/following-sibling::div[@class="col pl-2"]/text()').get()
 
+    @staticmethod
+    def get_vacancy_views(response: Response) -> int | None:
+        views = response.xpath('//span[@class="bi bi-eye "]/following-sibling::text()').get()
+        if views:
+            return int(views.strip().split()[0])
+        return None
+
+    @staticmethod
+    def get_amount_of_vacancy_review(response: Response) -> int | None:
+        reviews_amount = response.xpath('//span[@class="bi bi-people-fill "]/following-sibling::text()').get()
+        if reviews_amount:
+            return int(reviews_amount.strip().split()[0])
+        return None
+
     def parse(self, response: Response, **kwargs) -> None:
         job_urls = response.css(".job-list-item__link::attr(href)").getall()
 
@@ -45,4 +59,6 @@ class PythonVacanciesSpider(scrapy.Spider):
             "vacancy_title": self.get_vacancy_title(response),
             "company_name": self.get_company_name(response),
             "required_technologies": self.get_technologies(response),
+            "vacancy_views_amount": self.get_vacancy_views(response),
+            "vacancy_reviews_amount": self.get_amount_of_vacancy_review(response),
         }
