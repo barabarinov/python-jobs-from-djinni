@@ -14,3 +14,7 @@ scrapy crawl python_vacancies -o vacancies.csv
 ```shell
 python analyze_technologies.py
 ```
+## The result of data analysis
+![Graph 1](img/Figure_1.png)
+![Graph 2](img/Figure_2.png)
+![Graph 3](img/Figure_3.png)
