@@ -14,7 +14,9 @@ scrapy crawl python_vacancies -o vacancies.csv
 ```shell
 python analyze_technologies.py
 ```
-## The result of data analysis
-![Graph 1](img/Figure_1.png)
-![Graph 2](img/Figure_2.png)
-![Graph 3](img/Figure_3.png)
+## The result of data analysis:
+<p align="center">
+  <img src="https://github.com/barabarinov/python-jobs-from-djinni/blob/develop/img/Figure_1.png?raw=true" alt="Graph 1"/>
+  <img src="https://github.com/barabarinov/python-jobs-from-djinni/blob/develop/img/Figure_2.png?raw=true" alt="Graph 2"/>
+  <img src="https://github.com/barabarinov/python-jobs-from-djinni/blob/develop/img/Figure_3.png?raw=true" alt="Graph 3"/>
+</p>
